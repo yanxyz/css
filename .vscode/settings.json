@@ -1,0 +1,6 @@
+{
+  "files.exclude": {
+    "_site": true,
+    "**/.DS_Store": true
+  }
+}
