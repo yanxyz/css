@@ -1,7 +1,14 @@
 _site
-primer.style.css
 .sass-cache
 .jekyll-metadata
 Gemfile
 Gemfile.lock
+
+default.css
+.vscode
 *.sublime-*
+
+/_scripts/
+node_modules
+yarn.lock
+package-lock.json

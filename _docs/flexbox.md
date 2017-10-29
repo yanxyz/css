@@ -5,22 +5,15 @@ toc: true
 
 # flexbox
 
-[Spec 笔记](https://ynotes.github.io/css-flexbox/)
-
-CSS 2 布局模式：
-
-- block
-- inline
-- table
-- positioned
+CSS 2 布局模式：block, inline, table, positioned。
 
 flexbox 是一种新的布局模式。
 
-## terminology
+## Terminology
 
 ![](/css/uploads/flexbox/flex-direction-terms.svg)
 
-flexbox 相关属性比较多，首先应分清属性是用于 flex container 还是 flex items。
+flexbox 相关属性比较多，首先应分清该属性是用于 flex container 还是 flex items。
 
 ## flex container
 
@@ -29,6 +22,8 @@ flexbox 相关属性比较多，首先应分清属性是用于 flex container �
 ```
 display: flex | inline-flex
 ```
+
+将 element 声明为 flex container，它的 chidren 为 flex items。
 
 ### flex-direction
 
@@ -97,9 +92,9 @@ flex lines 的排列。只有当 flex container 多行时（flex-wrap: !nowrap�
 
 ## flex items
 
-flex items 下面属性
+flex items
 
-- float 忽略
+- 忽略 float
 - `position: absolute | fixed`，表现好像只有它一个 flex item。
 - margin: auto，在 justify-content, align-self 之前取走空余空间。
 
@@ -110,7 +105,7 @@ Value: none | flex-grow flex-shrink flex-basis
 Initial: 0 1 auto
 ```
 
-这是一个简写属性。
+这是一个 shorthand property。
 
 property    | omitted | initial
 ----------  | :-----: | :-----:
@@ -169,4 +164,5 @@ Initial: 0
 
 ## 资料
 
+- [Spec](https://drafts.csswg.org/css-flexbox/)
 - [flexbox bugs](http://philipwalton.com/articles/normalizing-cross-browser-flexbox-bugs/)

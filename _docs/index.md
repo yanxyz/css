@@ -8,10 +8,8 @@ CSS 为 structured document(HTML, XML 等) 指定样式。
 
 ## 目录
 
-概念
-
 - [语法](syntax.md)
-- [继承](inherit.md)
+- [data types](data-types.md)
 - [术语](terms.md)
 
 模块
@@ -23,12 +21,16 @@ CSS 为 structured document(HTML, XML 等) 指定样式。
 - [浮动](floats.md)
 - [定位](positioning.md)
 - [z-index](z-index.md)
-- [变换](transforms.md)
-- [3D 变换](transforms3d.md)
-- [过渡](transitions.md)
-- [动画](animations.md)
+- [Transforms](transforms.md)
+- [3D transforms](transforms3d.md)
+- [Transitions](transitions.md)
+- [Animations](animations.md)
 - [flexbox](flexbox.md)
 - [多列布局](multicol.md)
+
+At-rule
+
+- [@import](@import.md)
 
 工具
 
@@ -38,3 +40,4 @@ CSS 为 structured document(HTML, XML 等) 指定样式。
 
 - <http://caniuse.com/> 查看兼容性
 - <https://css-tricks.com/> CSS 专题博客
+- <https://drafts.csswg.org/> CSS 规范草案

@@ -7,11 +7,11 @@
   {% if site.github.owner_name %}
   <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
   {% else %}
-  <link rel="stylesheet" href="{{ '/assets/css/primer.style.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/default.css' | relative_url }}">
   {% endif %}
   <link rel="stylesheet" href="{{ '/assets/css/custom.css?v=' | append: site.github.build_revision | relative_url }}">
   <script>
-    var site_baseurl = '{{ '/' | relative_url }}'
+    var SITE_BASEURL = '{{ '/' | relative_url }}'
   </script>
 </head>
 <body>
@@ -20,13 +20,14 @@
       <nav id="site-nav">
         <a href="{{ '/' | relative_url }}" id="home-link">Home</a>
         <a href="{{ '/selectors' | relative_url }}">Selectors</a>
+        <a href="/note/">Other Notes</a>
       </nav>
     </div>
   </header>
   <main id="site-main">
     <article class="inner markdown-body">
-      {{ content }}
       <!-- <a href="http://yanxyz.net">Ivan Yan</a> 的笔记 -->
+      {{ content }}
     </article>
   </main>
   <footer id="site-footer">
@@ -34,5 +35,15 @@
       <p>Ivan Yan 的笔记，采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>进行许可，<a href="{{ site.github.repository_url }}/blob/master/{{ page.path }}">编辑</a>。</p>
     </div>
   </footer>
+
+  {% if page.toc %}
+  <details id="toc">
+    <summary>文章目录</summary>
+  </details>
+  {% endif %}
+
+  {% include icons.html %}
+
+  <script src="{{ '/assets/js/script.js?v=' | append: site.github.build_revision | relative_url }}"></script>
 </body>
 </html>

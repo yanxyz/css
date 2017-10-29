@@ -2,7 +2,7 @@
 permalink: /floats/
 ---
 
-# CSS Floats
+# Floats
 
 - [Visual formatting model 9.5 Floats](https://ynotes.github.io/css2/visuren.html#floats)
 

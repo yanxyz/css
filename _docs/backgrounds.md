@@ -2,9 +2,8 @@
 permalink: /backgrounds/
 ---
 
-# CSS backgrounds
+# backgrounds
 
-[Spec 笔记](https://ynotes.github.io/css-backgrounds/)
 
 ## 背景区域
 
@@ -33,3 +32,6 @@ offset: (A - a) * x, (B - b) * y,
 - `100% 100%` 右下角对齐
 - `0% 100%` 左下角对齐
 
+## 资料
+
+- [Spec 笔记](https://ynotes.github.io/css-backgrounds/)

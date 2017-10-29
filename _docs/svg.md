@@ -6,9 +6,13 @@ permalink: /svg/
 
 SVG 的源码是 XML 格式，文件扩展名为 ".svg"。
 
+```
+Content-Type: image/svg+xml
+```
+
 ## 怎么使用 SVG
 
-SVG 是矢量图形，可以像 png 等图片一样使用，需要注意的是指定 SVG 的尺寸。
+SVG 是矢量图形，可以像 png 等图片一样使用，注意指定 SVG 的尺寸。
 
 ```html
 <img src="home.svg" alt="" width="200">
