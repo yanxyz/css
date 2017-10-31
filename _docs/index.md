@@ -10,6 +10,7 @@ CSS 为 structured document(HTML, XML 等) 指定样式。
 
 - [语法](syntax.md)
 - [data types](data-types.md)
+- [variables](variables.md)
 - [术语](terms.md)
 
 模块
@@ -25,7 +26,8 @@ CSS 为 structured document(HTML, XML 等) 指定样式。
 - [3D transforms](transforms3d.md)
 - [Transitions](transitions.md)
 - [Animations](animations.md)
-- [flexbox](flexbox.md)
+- [Flexbox](flexbox.md)
+- [Grid](grid.md)
 - [多列布局](multicol.md)
 
 At-rule

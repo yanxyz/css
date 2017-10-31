@@ -8,10 +8,17 @@ document.getElementById('site-main').querySelectorAll('a').forEach(a => {
   }
 })
 
-document.addEventListener('keyup', function (event) {
+document.addEventListener('keydown', function (event) {
+  if (event.ctrlKey || event.shiftKey || event.altKey || event.metaKey) return
+
   // 't' goto top
-  if (event.keyCode === 84) {
+  if (event.code === 'keyT') {
     document.documentElement.scrollTop = 0;
+  }
+
+  // 'h' go home
+  if (event.code === 'keyH') {
+    document.getElementById('home-link').click()
   }
 })
 
@@ -50,7 +57,7 @@ function buildToc(params) {
       pushEnding()
       nested = false
     }
-    list.push(`<li><a href="#${id}">${h.textContent}</a>`)
+    list.push(`<li><a href="#${id}">${escapeHTML(h.textContent)}</a>`)
     level = n
   })
   if (nested) pushEnding()
@@ -66,3 +73,9 @@ function buildToc(params) {
 }
 
 buildToc()
+
+function escapeHTML(html) {
+  return html.replace(/&/g, '&amp;')
+  .replace(/</g, '&lt;')
+  .replace(/>/g, '&gt;')
+}

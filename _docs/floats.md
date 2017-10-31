@@ -78,3 +78,7 @@ overflow: hidden; /* 不是 visible */
 
 - <http://cssmojo.com/the-very-latest-clearfix-reloaded/>
 - <http://nicolasgallagher.com/micro-clearfix-hack/>
+
+方法三，`display: flow-root`
+
+Chrome 58

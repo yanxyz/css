@@ -3,7 +3,7 @@ permalink: /flexbox/
 toc: true
 ---
 
-# flexbox
+# Flexbox
 
 CSS 2 布局模式：block, inline, table, positioned。
 
@@ -95,7 +95,6 @@ flex lines 的排列。只有当 flex container 多行时（flex-wrap: !nowrap�
 flex items
 
 - 忽略 float
-- `position: absolute | fixed`，表现好像只有它一个 flex item。
 - margin: auto，在 justify-content, align-self 之前取走空余空间。
 
 ### flex
@@ -161,6 +160,22 @@ Initial: 0
 指定 flex items 的排列次序。值小的排在前面，值一样的按文档的次序排列。
 
 `order: -1` 将 item 提到最前。
+
+### Absolutely-Positioned Flex Children
+
+absolutely-positioned flex item（以下简称 child）不在 flow 中，故不参与 flex layout，即可用空间的计算不考虑它。
+
+child 就像唯一的 flex item, flex container 的 justify-content
+, align-items 对它有效。
+
+child 视为尺寸固定，所以
+
+- `margin： auto` 计算值为 0。
+- align-items 或 align-self，stretch 视为 flex-start。
+
+示例
+
+- [Chrome samples](https://googlechrome.github.io/samples/css-flexbox-abspos/index.html)
 
 ## 资料
 

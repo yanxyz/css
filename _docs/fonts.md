@@ -20,6 +20,9 @@ font shorthand
 
 Github 也使用这种技术。
 
+## font-variation-settings
+
+[OpenType Variable Fonts](https://developers.google.com/web/updates/2017/10/nic62#otvf)
 
 ## Web fonts
 
@@ -30,3 +33,6 @@ Github 也使用这种技术。
 字体格式有哪些？
 
 - <https://fonts.google.com/>
+
+
+
