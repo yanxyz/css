@@ -1,0 +1,525 @@
+<table class="data" id="selector-examples">
+  <thead>
+    <tr>
+      <th>Pattern</th>
+      <th>Represents</th>
+      <th>Section</th>
+      <th>Level</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td data-note="#universal-selector"><code>*</code></td>
+      <td>任意元素</td>
+      <td><a href="#the-universal-selector">§5.2 Universal selector</a></td>
+      <td>2</td>
+      <td><a data-mdn="Universal_selectors">MDN</a></td>
+    </tr>
+    <tr>
+      <td data-note=""><code>E</code></td>
+      <td>E 元素，它的 type 为 E</td>
+      <td><a href="#type-selectors">§5.1 Type (tag name) selector</a></td>
+      <td>1</td>
+      <td><a data-mdn="Type_selectors">MDN</a></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td data-note="#not"><code>E:not(<var>s1</var>, <var>s2</var>)</code></td>
+      <td>E 元素，它既不匹配 <var>s1</var>，也不匹配 <var>s2</var>。 s1 和 s2 为 <a href="../terms/#compound-selector">compound selector</a></td>
+      <td><a href="#negation">§4.3 The Negation Pseudo-class: :not()</a></td>
+      <td>3/4</td>
+      <td><a data-mdn=":not">MDN</a></td>
+    </tr>
+    <tr>
+      <td data-note="#not"><code>E:matches(<var>s1</var>, <var>s2</var>)</code></td>
+      <td>E 元素，它匹配 <var>s1</var> 或匹配 <var>s2</var>。s1 和 s2 为 <a href="../terms/#compound-selector">compound selector</a></td>
+      <td><a href="#matches">§4.2 The Matches-any Pseudo-class: :matches()</a></td>
+      <td>4</td>
+      <td><a data-mdn=":matches">MDN</a></td>
+    </tr>
+    <tr>
+      <td data-note=""><code>E:has(<var>rs1</var>, <var>rs2</var>)</code></td>
+      <td>an E element, if either of the <a data-link-type="dfn" href="#relative-selector" id="ref-for-relative-selector">relative selectors</a> <var>rs1</var> or <var>rs2</var>, when evaluated with E as the <a data-link-type="dfn" href="#scope-element" id="ref-for-scope-element">:scope elements</a>, match an element</td>
+      <td><a href="#relational">§4.4 The Relational Pseudo-class: :has()</a></td>
+      <td>4</td>
+      <td><a data-mdn=":has">MDN</a></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td data-note=""><code>E.warning</code></td>
+      <td>E 元素，它的 class 包含 <code>warning</code></td>
+      <td><a href="#class-html">§6.6 Class selectors</a></td>
+      <td>1</td>
+      <td><a data-mdn="Class_selectors">MDN</a></td>
+    </tr>
+    <tr>
+      <td data-note=""><code>E#myid</code></td>
+      <td>E 元素，它的 id 为 <code>myid</code></td>
+      <td><a href="#id-selectors">§6.7 ID selectors</a></td>
+      <td>1</td>
+      <td><a data-mdn="ID_selectors">MDN</a></td>
+    </tr>
+    <tr>
+      <td data-note="#attribute-selectors"><code>E[foo]</code></td>
+      <td>E 元素，它有 <code>foo</code> attribute</td>
+      <td><a href="#attribute-selectors">§6 Attribute selectors</a></td>
+      <td>2</td>
+      <td><a data-mdn="Attribute_selectors">MDN</a></td>
+    </tr>
+    <tr>
+      <td data-note=""><code>E[foo="bar"]</code></td>
+      <td>E 元素，它的 <code>foo</code> attribute 的值为 <code>bar</code></td>
+      <td><a href="#attribute-selectors">§6 Attribute selectors</a></td>
+      <td>2</td>
+      <td><a data-mdn="Attribute_selectors">MDN</a></td>
+    </tr>
+    <tr>
+      <td data-note=""><code>E[foo="bar" i]</code></td>
+      <td>E 元素，它的 <code>foo</code> attribute 的值为不区分大小写 (ASCII-range) 的 <code>bar</code>。</td>
+      <td><a href="#attribute-case">§6.3 Case-sensitivity</a></td>
+      <td>4</td>
+      <td><a data-mdn="Attribute_selectors">MDN</a></td>
+    </tr>
+    <tr>
+      <td data-note=""><code>E[foo~="bar"]</code></td>
+      <td>E 元素，它的 <code>foo</code> attribute 的值为以空格分隔的列表，其中之一为 <code>bar</code></td>
+      <td><a href="#attribute-selectors">§6 Attribute selectors</a></td>
+      <td>2</td>
+      <td><a data-mdn="Attribute_selectors">MDN</a></td>
+    </tr>
+    <tr>
+      <td data-note=""><code>E[foo^="bar"]</code></td>
+      <td>E 元素，它的 <code>foo</code> attribute 的值以 <code>bar</code> 开始</td>
+      <td><a href="#attribute-substrings">§6.2 Substring matching attribute selectors</a></td>
+      <td>3</td>
+      <td><a data-mdn="Attribute_selectors">MDN</a></td>
+    </tr>
+    <tr>
+      <td data-note=""><code>E[foo$="bar"]</code></td>
+      <td>E 元素，它的 <code>foo</code> attribute 的值以 <code>bar</code> 结束</td>
+      <td><a href="#attribute-substrings">§6.2 Substring matching attribute selectors</a></td>
+      <td>3</td>
+      <td><a data-mdn="Attribute_selectors">MDN</a></td>
+    </tr>
+    <tr>
+      <td data-note=""><code>E[foo*="bar"]</code></td>
+      <td>E 元素，它的 <code>foo</code> attribute 的值包含子串 <code>bar</code></td>
+      <td><a href="#attribute-substrings">§6.2 Substring matching attribute selectors</a></td>
+      <td>3</td>
+      <td><a data-mdn="Attribute_selectors">MDN</a></td>
+    </tr>
+    <tr>
+      <td data-note=""><code>E[foo|="en"]</code></td>
+      <td>E 元素，它的 <code>foo</code> attribute 的值为 <code>en</code> 或者以 <code>en-</code>开始</td>
+      <td><a href="#attribute-selectors">§6 Attribute selectors</a></td>
+      <td>2</td>
+      <td><a data-mdn="Attribute_selectors">MDN</a></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td data-note=""><code>E:dir(ltr)</code></td>
+      <td>E 元素，它的文字书写方向为 left-to-right</td>
+      <td><a href="#the-dir-pseudo">§7.1 The Directionality Pseudo-class: :dir()</a></td>
+      <td>4</td>
+      <td><a data-mdn=":dir">MDN</a></td>
+    </tr>
+    <tr>
+      <td data-note=""><code>E:lang(zh, "*-hant")</code></td>
+      <td>an element of type E tagged as being either in Chinese (any dialect or writing system) or otherwise written with traditional Chinese characters</td>
+      <td><a href="#the-lang-pseudo">§7.2 The Language Pseudo-class: :lang()</a></td>
+      <td>2/4</td>
+      <td><a data-mdn=":lang">MDN</a></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td data-note=""><code>E:any-link</code></td>
+      <td>E 元素，它是an E element being the source anchor of a hyperlink</td>
+      <td><a href="#the-any-link-pseudo">§8.1 The Hyperlink Pseudo-class: :any-link</a></td>
+      <td>4</td>
+      <td><a data-mdn=":any-link">MDN</a></td>
+    </tr>
+    <tr>
+      <td data-note=""><code>E:link</code></td>
+      <td>an E element being the source anchor of a hyperlink of which the target is not yet visited</td>
+      <td><a href="#link">§8.2 The Link History Pseudo-classes: :link and :visited</a></td>
+      <td>1</td>
+      <td><a data-mdn=":link">MDN</a></td>
+    </tr>
+    <tr>
+      <td data-note=""><code>E:visited</code></td>
+      <td>an E element being the source anchor of a hyperlink of which the target is already visited</td>
+      <td><a href="#link">§8.2 The Link History Pseudo-classes: :link and :visited</a></td>
+      <td>1</td>
+      <td><a data-mdn=":visited">MDN</a></td>
+    </tr>
+    <tr>
+      <td data-note=""><code>E:target</code></td>
+      <td>E 元素，它是element being the target of the referring URL</td>
+      <td><a href="#the-target-pseudo">§8.3 The Target Pseudo-class: :target</a></td>
+      <td>3</td>
+      <td><a data-mdn=":target">MDN</a></td>
+    </tr>
+    <tr>
+      <td data-note=""><code>E:scope</code></td>
+      <td>an E element being a designated reference element</td>
+      <td><a href="#the-scope-pseudo">§8.4 The Reference Element Pseudo-class: :scope</a></td>
+      <td>4</td>
+      <td><a data-mdn=":scope">MDN</a></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td data-note=""><code>E:current</code></td>
+      <td>an E element that is currently presented in a time-dimensional canvas</td>
+      <td><a href="#time-pseudos">§10 Time-dimensional Pseudo-classes</a></td>
+      <td>4</td>
+      <td><a data-mdn=":current">MDN</a></td>
+    </tr>
+    <tr>
+      <td data-note=""><code>E:current(<var>s</var>)</code></td>
+      <td>an E element that is the deepest <a class="css" data-link-type="maybe" href="#current-pseudo" id="ref-for-current-pseudo">:current</a> element that matches selector <var>s</var></td>
+      <td><a href="#time-pseudos">§10 Time-dimensional Pseudo-classes</a></td>
+      <td>4</td>
+      <td><a data-mdn=":current">MDN</a></td>
+    </tr>
+    <tr>
+      <td data-note=""><code>E:past</code></td>
+      <td>an E element that is in the past in a time-dimensional canvas</td>
+      <td><a href="#time-pseudos">§10 Time-dimensional Pseudo-classes</a></td>
+      <td>4</td>
+      <td><a data-mdn=":past">MDN</a></td>
+    </tr>
+    <tr>
+      <td data-note=""><code>E:future</code></td>
+      <td>an E element that is in the future in a time-dimensional canvas</td>
+      <td><a href="#time-pseudos">§10 Time-dimensional Pseudo-classes</a></td>
+      <td>4</td>
+      <td><a data-mdn=":future">MDN</a></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td data-note=""><code>E:active</code></td>
+      <td>E 元素，它处于激活状态</td>
+      <td><a href="#useraction-pseudos">§9 User Action Pseudo-classes</a></td>
+      <td>1</td>
+      <td><a data-mdn=":active">MDN</a></td>
+    </tr>
+    <tr>
+      <td data-note=""><code>E:hover</code></td>
+      <td>E 元素，它或它的后代在鼠标指针下</td>
+      <td><a href="#useraction-pseudos">§9 User Action Pseudo-classes</a></td>
+      <td>2</td>
+      <td><a data-mdn=":hover">MDN</a></td>
+    </tr>
+    <tr>
+      <td data-note=""><code>E:focus</code></td>
+      <td>E 元素，它有用户输入焦点</td>
+      <td><a href="#useraction-pseudos">§9 User Action Pseudo-classes</a></td>
+      <td>2</td>
+      <td><a data-mdn=":focus">MDN</a></td>
+    </tr>
+    <tr>
+      <td data-note=""><code>E:focus-ring</code></td>
+      <td>an E element that has user input focus, and the UA has determined that a focus ring or other indicator should be drawn for that element</td>
+      <td><a href="#useraction-pseudos">§9 User Action Pseudo-classes</a></td>
+      <td>4</td>
+      <td><a data-mdn=":focus-ring">MDN</a></td>
+    </tr>
+    <tr>
+      <td data-note=""><code>E:drop</code></td>
+      <td>an E element that can possibly receive a drop</td>
+      <td><a href="#drag-pseudos">§9.6 The Drag-and-Drop Pseudo-class: :drop and :drop()</a></td>
+      <td>4</td>
+      <td><a data-mdn=":drop">MDN</a></td>
+    </tr>
+    <tr>
+      <td data-note=""><code>E:drop(active)</code></td>
+      <td>an E element that is the current drop target for the item being dragged</td>
+      <td><a href="#drag-pseudos">§9.6 The Drag-and-Drop Pseudo-class: :drop and :drop()</a></td>
+      <td>4</td>
+      <td><a data-mdn=":drop">MDN</a></td>
+    </tr>
+    <tr>
+      <td data-note=""><code>E:drop(valid)</code></td>
+      <td>an E element that could receive the item currently being dragged</td>
+      <td><a href="#drag-pseudos">§9.6 The Drag-and-Drop Pseudo-class: :drop and :drop()</a></td>
+      <td>4</td>
+      <td><a data-mdn=":drop">MDN</a></td>
+    </tr>
+    <tr>
+      <td data-note=""><code>E:drop(invalid)</code></td>
+      <td>an E element that cannot receive the item currently being dragged, but could receive some other item</td>
+      <td><a href="#drag-pseudos">§9.6 The Drag-and-Drop Pseudo-class: :drop and :drop()</a></td>
+      <td>4</td>
+      <td><a data-mdn=":drop">MDN</a></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td data-note=""><code>E:enabled<br>E:disabled</code></td>
+      <td>UI 元素 E，它被启用或禁用</td>
+      <td><a href="#enableddisabled">§12.1.1 The :enabled and :disabled Pseudo-classes</a></td>
+      <td>3</td>
+      <td><a data-mdn=":enabled">MDN</a></td>
+    </tr>
+    <tr>
+      <td data-note=""><code>E:read-write</code><br><code>E:read-only</code></td>
+      <td>a user interface element E that is user alterable, or not</td>
+      <td><a href="#rw-pseudos">§12.1.2 The Mutability Pseudo-classes: :read-only and :read-write</a></td>
+      <td>3-UI/4</td>
+      <td><a data-mdn=":read-write">MDN</a></td>
+    </tr>
+    <tr>
+      <td data-note=""><code>E:placeholder-shown</code></td>
+      <td>输入控件 E，它正显示它的 placeholder text</td>
+      <td><a href="#rw-pseudos">§12.1.2 The Mutability Pseudo-classes: :read-only and :read-write</a></td>
+      <td>3-UI/4</td>
+      <td><a data-mdn=":placeholder-shown">MDN</a></td>
+    </tr>
+    <tr>
+      <td data-note=""><code>E:default</code></td>
+      <td>UI 元素 E，它是选项当中的默认项</td>
+      <td><a href="#the-default-pseudo">§12.1.4 The Default-option Pseudo-class: :default</a></td>
+      <td>3-UI/4</td>
+      <td><a data-mdn=":default">MDN</a></td>
+    </tr>
+    <tr>
+      <td data-note=""><code>E:checked</code></td>
+      <td>UI 元素 E，它 checked/selected (如 radio-button or checkbox)</td>
+      <td><a href="#checked">§12.2.1 The Selected-option Pseudo-class: :checked</a></td>
+      <td>3</td>
+      <td><a data-mdn=":checked">MDN</a></td>
+    </tr>
+    <tr>
+      <td data-note=""><code>E:indeterminate</code></td>
+      <td>a user interface element E that is in an indeterminate state (neither checked nor unchecked)</td>
+      <td><a href="#indeterminate">§12.2.2 The Indeterminate-value Pseudo-class: :indeterminate</a></td>
+      <td>4</td>
+      <td><a data-mdn=":indeterminate">MDN</a></td>
+    </tr>
+    <tr>
+      <td data-note=""><code>E:valid</code><br><code>E:invalid</code></td>
+      <td>a user-input element E that meets, or doesn’t, its data validity semantics</td>
+      <td><a href="#range-pseudos">§12.3.2 The Range Pseudo-classes: :in-range and :out-of-range</a></td>
+      <td>3-UI/4</td>
+      <td><a data-mdn=":valid">MDN</a></td>
+    </tr>
+    <tr>
+      <td data-note=""><code>E:in-range</code><br><code>E:out-of-range</code></td>
+      <td>a user-input element E whose value is in-range/out-of-range</td>
+      <td><a href="#range-pseudos">§12.3.2 The Range Pseudo-classes: :in-range and :out-of-range</a></td>
+      <td>3-UI/4</td>
+      <td><a data-mdn=":in-range">MDN</a></td>
+    </tr>
+    <tr>
+      <td data-note=""><code>E:required</code><br><code>E:optional</code></td>
+      <td>a user-input element E that requires/does not require input</td>
+      <td><a href="#opt-pseudos">§12.3.3 The Optionality Pseudo-classes: :required and :optional</a></td>
+      <td>3-UI/4</td>
+      <td><a data-mdn=":required">MDN</a></td>
+    </tr>
+    <tr>
+      <td data-note=""><code>E:user-error</code></td>
+      <td>a user-altered user-input element E with incorrect input (invalid, out-of-range, omitted-but-required)</td>
+      <td><a href="#user-pseudos">§12.3.4 The User-interaction Pseudo-class: :user-invalid</a></td>
+      <td>4</td>
+      <td><a data-mdn=":user-error">MDN</a></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td data-note=""><code>E:root</code></td>
+      <td>E 元素，它是文档的 root</td>
+      <td><a href="#structural-pseudos">§13 Tree-Structural pseudo-classes</a></td>
+      <td>3</td>
+      <td><a data-mdn=":root">MDN</a></td>
+    </tr>
+    <tr>
+      <td data-note=""><code>E:empty</code></td>
+      <td>E 元素，它没有 children (包括 text nodes)</td>
+      <td><a href="#structural-pseudos">§13 Tree-Structural pseudo-classes</a></td>
+      <td>3</td>
+      <td><a data-mdn=":empty">MDN</a></td>
+    </tr>
+    <tr>
+      <td data-note=""><code>E:blank</code></td>
+      <td>E 元素，它没有内容（空白除外）</td>
+      <td><a href="#structural-pseudos">§13 Tree-Structural pseudo-classes</a></td>
+      <td>4</td>
+      <td><a data-mdn=":blank">MDN</a></td>
+    </tr>
+    <tr>
+      <td data-note=""><code>E:nth-child(<var>n</var> [of <var>S</var>]?)</code></td>
+      <td>E 元素， the <var>n</var>-th child of its parent matching <var>S</var></td>
+      <td><a href="#child-index">§13.4 Child-indexed Pseudo-classes</a></td>
+      <td>3</td>
+      <td><a data-mdn=":nth-child">MDN</a></td>
+    </tr>
+    <tr>
+      <td data-note=""><code>E:nth-last-child(<var>n</var> [of <var>S</var>]?)</code></td>
+      <td>an E element, the <var>n</var>-th child of its parent matching <var>S</var>, counting from the last one</td>
+      <td><a href="#child-index">§13.4 Child-indexed Pseudo-classes</a></td>
+      <td>3</td>
+      <td><a data-mdn=":nth-last-child">MDN</a></td>
+    </tr>
+    <tr>
+      <td data-note=""><code>E:first-child</code></td>
+      <td>E 元素，它是它的 parent 的第一个 child</td>
+      <td><a href="#child-index">§13.4 Child-indexed Pseudo-classes</a></td>
+      <td>2</td>
+      <td><a data-mdn=":first-child">MDN</a></td>
+    </tr>
+    <tr>
+      <td data-note=""><code>E:last-child</code></td>
+      <td>E 元素，它是它的 parent 的最后一个 child</td>
+      <td><a href="#child-index">§13.4 Child-indexed Pseudo-classes</a></td>
+      <td>3</td>
+      <td><a data-mdn=":last-child">MDN</a></td>
+    </tr>
+    <tr>
+      <td data-note=""><code>E:only-child</code></td>
+      <td>E 元素，它是它的 parent 的唯一 child</td>
+      <td><a href="#child-index">§13.4 Child-indexed Pseudo-classes</a></td>
+      <td>3</td>
+      <td><a data-mdn=":only-child">MDN</a></td>
+    </tr>
+    <tr>
+      <td data-note=""><code>E:nth-of-type(<var>n</var>)</code></td>
+      <td>an E element, the <var>n</var>-th sibling of its type</td>
+      <td><a href="#typed-child-index">§13.5 Typed Child-indexed Pseudo-classes</a></td>
+      <td>3</td>
+      <td><a data-mdn=":nth-of-type">MDN</a></td>
+    </tr>
+    <tr>
+      <td data-note=""><code>E:nth-last-of-type(<var>n</var>)</code></td>
+      <td>an E element, the <var>n</var>-th sibling of its type, counting from the last one</td>
+      <td><a href="#typed-child-index">§13.5 Typed Child-indexed Pseudo-classes</a></td>
+      <td>3</td>
+      <td><a data-mdn=":nth-last-of-type">MDN</a></td>
+    </tr>
+    <tr>
+      <td data-note=""><code>E:first-of-type</code></td>
+      <td>an E element, first sibling of its type</td>
+      <td><a href="#typed-child-index">§13.5 Typed Child-indexed Pseudo-classes</a></td>
+      <td>3</td>
+      <td><a data-mdn=":first-of-type">MDN</a></td>
+    </tr>
+    <tr>
+      <td data-note=""><code>E:last-of-type</code></td>
+      <td>E 元素, 它的 type 在 siblings 中唯一</td>
+      <td><a href="#typed-child-index">§13.5 Typed Child-indexed Pseudo-classes</a></td>
+      <td>3</td>
+      <td><a data-mdn=":last-of-type">MDN</a></td>
+    </tr>
+    <tr>
+      <td data-note=""><code>E:only-of-type</code></td>
+      <td>E 元素, 它的 type 在 siblings 中唯一</td>
+      <td><a href="#typed-child-index">§13.5 Typed Child-indexed Pseudo-classes</a></td>
+      <td>3</td>
+      <td><a data-mdn=":only-of-type">MDN</a></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td data-note=""><code>E F</code> <em>or</em> <code>E >> F</code></td>
+      <td>F 元素，它是 E 元素的后代</td>
+      <td><a href="#descendant-combinators">§14.1 Descendant combinator ( ) or (>>)</a></td>
+      <td>1 <em>or</em> 4</td>
+      <td><a data-mdn="Descendant_selectors">MDN</a></td>
+    </tr>
+    <tr>
+      <td data-note=""><code>E > F</code></td>
+      <td>F 元素，它是 E 元素的子代</td>
+      <td><a href="#child-combinators">§14.2 Child combinator (>)</a></td>
+      <td>2</td>
+      <td><a data-mdn="Child_selectors">MDN</a></td>
+    </tr>
+    <tr>
+      <td data-note=""><code>E + F</code></td>
+      <td>F 元素，它贴身跟在 E 元素的后面</td>
+      <td><a href="#adjacent-sibling-combinators">§14.3 Next-sibling combinator (+)</a></td>
+      <td>2</td>
+      <td><a data-mdn="Adjacent_sibling_selectors">MDN</a></td>
+    </tr>
+    <tr>
+      <td data-note=""><code>E ~ F</code></td>
+      <td>F 元素，它在 E 元素的后面</td>
+      <td><a href="#general-sibling-combinators">§14.4 Subsequent-sibling combinator (~)</a></td>
+      <td>3</td>
+      <td><a data-mdn="General_sibling_selectors">MDN</a></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td data-note=""><code>F || E</code></td>
+      <td>an E element that represents a cell in a grid/table belonging to a column represented by an element F</td>
+      <td><a href="#table-pseudos">§15 Grid-Structural Selectors</a></td>
+      <td>4</td>
+      <td><a data-mdn="">MDN</a></td>
+    </tr>
+    <tr>
+      <td data-note=""><code>E:nth-column(<var>n</var>)</code></td>
+      <td>an E element that represents a cell belonging to the <var>n</var>th column in a grid/table</td>
+      <td><a href="#table-pseudos">§15 Grid-Structural Selectors</a></td>
+      <td>4</td>
+      <td><a data-mdn=":nth-column">MDN</a></td>
+    </tr>
+    <tr>
+      <td data-note=""><code>E:nth-last-column(<var>n</var>)</code></td>
+      <td>an E element that represents a cell belonging to the <var>n</var>th column in a grid/table, counting from the last one</td>
+      <td><a href="#table-pseudos">§15 Grid-Structural Selectors</a></td>
+      <td>4</td>
+      <td><a data-mdn=":nth-last-column">MDN</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<style>
+  #selector-examples td:first-child,
+  #selector-examples td:last-child {
+    white-space: nowrap;
+  }
+
+  table.data thead,
+  table.data tbody {
+    border-bottom: 2px solid;
+  }
+
+  table.data tbody:last-child {
+    border-bottom: 0;
+  }
+</style>
+
+<script>
+Array.from(document.querySelectorAll('#selector-examples a')).forEach(function (a) {
+  const mdn = a.dataset.mdn
+  if (mdn) {
+    a.href = 'https://developer.mozilla.org/en-US/docs/Web/CSS/' + mdn
+    return
+  }
+
+  const href = a.getAttribute('href')
+  if (href && href.startsWith('#')) {
+    a.href = 'https://drafts.csswg.org/selectors/' + href
+    return
+  }
+})
+
+Array.from(document.querySelectorAll('td[data-note]')).forEach(function (td) {
+  const value = td.dataset.note
+  if (!value) return
+  const a = document.createElement('a')
+  a.href = td.dataset.note
+  let child
+  while ((child = td.firstChild)) {
+    a.appendChild(child)
+  }
+  td.appendChild(a)
+})
+</script>

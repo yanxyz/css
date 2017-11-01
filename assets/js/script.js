@@ -8,74 +8,33 @@ document.getElementById('site-main').querySelectorAll('a').forEach(a => {
   }
 })
 
-document.addEventListener('keydown', function (event) {
-  if (event.ctrlKey || event.shiftKey || event.altKey || event.metaKey) return
+/**
+ * 标题锚点
+ */
+const reH = /^H[2-4]$/
+Array.from(document.querySelector('.markdown-body').children).forEach(el => {
+  if (reH.test(el.tagName)) {
+    const id = el.id
+    if (!id || el.childElementCount) return
 
-  // 't' goto top
-  if (event.code === 'keyT') {
-    document.documentElement.scrollTop = 0;
-  }
-
-  // 'h' go home
-  if (event.code === 'keyH') {
-    document.getElementById('home-link').click()
+    el.innerHTML = `<a href="#${id}" class="anchor" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" width="14" height="14"><use xlink:href="#octicon-link"></use></svg></a>` + el.textContent
   }
 })
 
 /**
- * toc
+ * 快捷键
  */
 
-function buildToc(params) {
-  const container = document.getElementById('toc')
-  if (!container) return
+document.addEventListener('keydown', function (event) {
+  if (event.ctrlKey || event.shiftKey || event.altKey || event.metaKey) return
 
-  const article = document.getElementById('article')
-  const h1 = article.querySelector('h1')
-  article.insertBefore(container, h1 ? h1.nextSibling : article.firstChild)
-
-  const headings = Array.from(article.querySelectorAll('h2, h3'))
-  headings.forEach(h => {
-    const id = h.id
-    if (!id || h.childElementCount) return
-
-    h.innerHTML = `<a href="#${id}" class="anchor" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" width="14" height="14"><use xlink:href="#octicon-link"></use></svg></a>` + h.textContent
-  })
-
-  const list = []
-  let level
-  let nested = false
-  headings.forEach(h => {
-    const id = h.id
-    if (!id) return
-    const n = parseInt(h.tagName[1])
-    if (!level) level = n // 初始化
-    if (n > level) {
-      list.push('<ol>')
-      nested = true
-    } else if (n < level && nested) {
-      pushEnding()
-      nested = false
-    }
-    list.push(`<li><a href="#${id}">${escapeHTML(h.textContent)}</a>`)
-    level = n
-  })
-  if (nested) pushEnding()
-
-  list.unshift('<ol>')
-  pushEnding()
-  container.insertAdjacentHTML('beforeEnd', list.join('\n'))
-  container.open = true
-
-  function pushEnding() {
-    list.push('</ol>')
+  // 't' goto top
+  if (event.code === 'KeyT') {
+    document.documentElement.scrollTop = 0;
   }
-}
 
-buildToc()
-
-function escapeHTML(html) {
-  return html.replace(/&/g, '&amp;')
-  .replace(/</g, '&lt;')
-  .replace(/>/g, '&gt;')
-}
+  // 'h' go home
+  if (event.code === 'KeyH') {
+    document.getElementById('home-link').click()
+  }
+})

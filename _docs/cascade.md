@@ -1,6 +1,0 @@
----
-permalink: /cascade/
----
-
-# CSS Cascade
-

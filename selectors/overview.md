@@ -4,9 +4,33 @@
 
 <!-- 更新 https://github.com/yanxyz/css-selectors-overview/ -->
 
-{% include overview.html %}
+{% include selectors-overview.html %}
+
+### Universal selector
+
+`*`，匹配任意 type 元素
+
+获取所有元素
+
+```js
+document.getElementsByTagName('*')
+document.querySelectorAll('*')
+```
+
+### Attribute selectors
+
+`E[foo="bar" i]`, i 表示 ignore case，值不区分大小写
+
+```css
+E[foo="bar" i]
+E[foo|="bar" i]
+```
+
+
 
 ### `:dir`
+
+
 
 ### :nth-child()
 

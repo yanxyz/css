@@ -9,28 +9,22 @@
 </head>
 <body>
   <header id="site-header">
-    <div class="inner border-bottom border-gray-light pb-1">
+    <div class="container-lg px-3 border-bottom border-gray-light py-2">
       {% include nav.html %}
     </div>
   </header>
   <main id="site-main">
-    <article class="inner markdown-body" id="article">
+    <article class="container-lg px-3 my-5 markdown-body">
       <!-- <a href="http://yanxyz.net">Ivan Yan</a> 的笔记 -->
       {{ content }}
     </article>
   </main>
   <footer id="site-footer">
-    <div class="inner border-top border-gray-light mt-5 pt-3 text-gray">
+    <div class="container-lg px-3 border-top border-gray-light pt-2 text-gray">
       <p>Ivan Yan 的笔记，采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>进行许可。
       {% if site.github.repository_url %} {% github_edit_link "编辑" %} {% endif %} </p>
     </div>
   </footer>
-
-  {% if page.toc %}
-  <details id="toc">
-    <summary>文章目录</summary>
-  </details>
-  {% endif %}
 
   {% include icons.html %}
 

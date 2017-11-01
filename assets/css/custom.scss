@@ -16,36 +16,11 @@ body {
   color: #999;
 }
 
-.inner {
-  max-width: 980px;
-  margin: auto;
-
-  @media (max-width: 980px) {
-    padding: 0 20px;
-  }
-}
-
-//
-// header
-//
-
-#site-header {
-  margin: 20px 0 40px;
-}
-
 #site-nav a {
   margin-right: 20px;
   @media (max-width: 980px) {
-    margin-right: 0 10px;
+    margin-right: 5px;
   }
-}
-
-//
-// main
-//
-
-#site-main {
-  margin-bottom: 40px;
 }
 
 .octicon-link-external {
@@ -60,20 +35,6 @@ body {
 .highlight .c {
   font-style: normal;
 }
-
-#toc {
-  margin-bottom: 16px;
-  summary {
-    margin-bottom: 16px;
-  }
-  ol {
-    list-style: none;
-  }
-}
-
-//
-// footer
-//
 
 #site-footer {
   font-size: 12px;
